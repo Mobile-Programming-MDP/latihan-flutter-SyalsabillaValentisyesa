@@ -50,6 +50,18 @@ class GaleriFoto extends StatelessWidget {
               Text("Publikasi: 12 Oktober 2024")
             ],
           ),
+          SizedBox(height: 10), // Jarak sebelum deskripsi
+          Padding(
+            padding: const EdgeInsets.all(16.0), // Padding untuk teks deskripsi
+            child: Text(
+              "Deskripsi: Pantai Kambang Iwak adalah salah satu pantai yang sangat terkenal. Banyak sapi dan juga banyak uamng-umang di pantai tersebut.",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.black,
+              ),
+            ),
+          ),
         ],
       ),
     );
