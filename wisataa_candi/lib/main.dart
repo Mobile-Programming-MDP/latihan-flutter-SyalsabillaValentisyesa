@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: DetailScreen(
-        candi: candiList[8],
+        candi: candiList[0],
       ),
     );
   }
