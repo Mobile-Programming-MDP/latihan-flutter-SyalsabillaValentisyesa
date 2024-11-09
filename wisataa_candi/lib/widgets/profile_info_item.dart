@@ -13,7 +13,7 @@ class ProfileInfoItem extends StatelessWidget {
       required this.icon,
       required this.label,
       required this.value,
-      this.showEditIcon = false,
+      this.showEditions = false,
       this.onEditPressed,
       required this.iconColor});
 

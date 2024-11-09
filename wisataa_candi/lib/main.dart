@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:wisataa_candi/data/candi_data.dart';
 import 'package:wisataa_candi/detail_screen.dart';
 import 'package:wisataa_candi/profile_screen.dart';
+import 'package:wisataa_candi/search_screen.dart';
 
 import 'profile_screen.dart';
 
@@ -17,8 +18,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       // home: DetailScreen(
       //   candi: candiList[0],
-      // ),
-      home: ProfileScreen(),
+      // )ooowww
+      home: SearchScreen(),
     );
   }
 }
