@@ -14,23 +14,23 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //TODO 1: AppBar
+      // AppBar
       appBar: AppBar(
-        title: Text('Wisata Candi'),
+        title: const Text('Wisata Candi'),
       ),
-      //TODO 2: GridVieBuilder
-      body: GridView.builder
-      (gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2), 
-      padding: EdgeInsets.all(8),
-      itemCount: candiList.length,
-      itemBuilder: (context, index) {
-        Candi candi = candiList[index];
-        return ItemCard(
-          candi: candi,
+
+      // GridView Builder
+      body: GridView.builder(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
         ),
-      }
+        padding: const EdgeInsets.all(8),
+        itemCount: candiList.length,
+        itemBuilder: (context, index) {
+          Candi candi = candiList[index];
+          return ItemCard(candi: candi);
+        },
       ),
-      //TODO 3: iTEMcaRD
     );
   }
 }
