@@ -150,7 +150,8 @@ class DetailScreen extends StatelessWidget {
                                   border: Border.all(
                                     color: Colors.deepPurple.shade100,
                                     width: 2,
-                                  )),
+                                  ),
+                                ),
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(10),
                                 child: CachedNetworkImage(
