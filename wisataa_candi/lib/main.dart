@@ -5,6 +5,7 @@ import 'package:wisataa_candi/favorit_screen.dart';
 import 'package:wisataa_candi/home_screen.dart';
 import 'package:wisataa_candi/profile_screen.dart';
 import 'package:wisataa_candi/search_screen.dart';
+import 'package:wisataa_candi/signupscreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       title: 'Wisata Candi',
-      home: MainScreen(),
+      home: Signupscreen(),
       // home : HomeScreen(),
       // home: SearchScreen(),
       // home: ProfileScreen(),
