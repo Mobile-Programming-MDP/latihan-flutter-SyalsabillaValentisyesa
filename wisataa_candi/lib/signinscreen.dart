@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SignInScreen extends StatefulWidget {
   SignInScreen({super.key});
@@ -15,6 +16,44 @@ class _SignInScreenState extends State<SignInScreen> {
 
   bool _obscurePassword = true;
   String _errorText = "";
+
+  void signIn() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    final String savedUsername = prefs.getString('usernme') ?? '';
+    final String savedPassword = prefs.getString('password') ?? '';
+    final String enteredUsername = _usernameController.text.trim();
+    final String enteredPassword = _passwordController.text.trim();
+
+    if (enteredUsername.isEmpty || enteredPassword.isEmpty) {
+      setState(() {
+        _errorText = 'Nama dan kata sandi tidak boleh kosong';
+      });
+    } else if (savedUsername.isEmpty || savedPassword.isEmpty) {
+      setState(() {
+        _errorText = 'Anda belum terdaftar';
+      });
+    }
+
+    if (enteredUsername == savedUsername && enteredPassword == savedPassword) {
+      setState(() {
+        _errorText = '';
+        var _isSignedIn = true;
+        prefs.setBool('isSignedIin', true);
+      });
+
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        Navigator.of(context).popUntil((route) => route.isFirst);
+      });
+
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        Navigator.pushReplacementNamed(context, '/h');
+      });
+    } else {
+      setState(() {
+        _errorText = 'Cek kembali nama pengguna dan kata sandi';
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +114,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     child: Text("Sign In"),
                   ),
                   // TODO 8: Pasang TextButton Sign Up
-                  SizedBox(height: 10),
+                  SizedBox(height: 20),
                   RichText(
                     text: TextSpan(
                       text: "Belum punya akun? ",
@@ -94,11 +133,13 @@ class _SignInScreenState extends State<SignInScreen> {
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
                               // Aksi untuk pindah ke halaman pendaftaran
+                              Navigator.pushNamed(context, '/signup');
                             },
                         ),
                       ],
                     ),
                   ),
+                  RichText(text: TextSpan(text: _errorText)),
                 ],
               ),
             ),
